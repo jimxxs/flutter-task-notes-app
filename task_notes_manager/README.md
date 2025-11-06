@@ -1,16 +1,44 @@
-# task_notes_manager
+# Task Notes Manager
 
-A new Flutter project.
+Ssessanga Jim Edward
+23/U/17752/EVE
+
+A Flutter application for managing tasks and notes efficiently.
+
+## Features
+
+- View a list of tasks and notes
+- Add new tasks through a dedicated screen
+- Clean and intuitive Material Design interface
+- Navigation between multiple screens
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter SDK installed on your machine
+- Dart SDK (comes with Flutter)
+- An IDE (VS Code, Android Studio, etc.)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Installation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Clone this repository
+2. Navigate to the project directory
+3. Run `flutter pub get` to install dependencies
+4. Run `flutter run` to start the application
+
+## Project Structure
+
+- `lib/main.dart` - Main application entry point with HomeScreen and Screen2
+- HomeScreen displays the list of tasks
+- Screen2 provides functionality to add new tasks
+
+## Resources
+
+- [Flutter Documentation](https://docs.flutter.dev/)
+- [Dart Documentation](https://dart.dev/guides)
+- [Material Design Guidelines](https://material.io/design)
+
+## License
+
+This project is a learning/demonstration application.
