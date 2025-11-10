@@ -1,8 +1,8 @@
 # Task Notes Manager
 
-**Name:** [Your Name]  
-**Student Number:** [Your Student Number]  
-**Registration Number:** [Your Registration Number]
+**Name:** Ssessanga Jim Edward
+**Student Number:** 2300717752  
+**Registration Number:** 23/U/17752/EVE
 
 ## Description
 
