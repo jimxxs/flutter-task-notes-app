@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/task_item.dart';
-import '../database_helper.dart';
+import '../storage_helper.dart';
 
 class AddTaskScreen extends StatefulWidget {
   const AddTaskScreen({super.key});
@@ -24,16 +24,34 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
 
   Future<void> _submitTask() async {
     if (_formKey.currentState!.validate()) {
-      final task = TaskItem(
-        title: _titleController.text,
-        priority: _priority,
-        description: _descriptionController.text,
-      );
-      
-      await DatabaseHelper().insertTask(task);
-      if (mounted) {
-        Navigator.pop(context, true);
+      try {
+        final task = TaskItem(
+          title: _titleController.text,
+          priority: _priority,
+          description: _descriptionController.text,
+        );
+        
+        final id = await StorageHelper().insertTask(task);
+        print('Task inserted with ID: $id');
+        
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Task added successfully!')),
+          );
+          Navigator.pop(context, true);
+        }
+      } catch (e) {
+        print('Error: $e');
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Error: $e')),
+          );
+        }
       }
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please fill all fields')),
+      );
     }
   }
 
@@ -97,9 +115,17 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 },
               ),
               const SizedBox(height: 24),
-              ElevatedButton(
-                onPressed: _submitTask,
-                child: const Text('Submit'),
+              SizedBox(
+                width: double.infinity,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: _submitTask,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurple,
+                    foregroundColor: Colors.white,
+                  ),
+                  child: const Text('Submit', style: TextStyle(fontSize: 16)),
+                ),
               ),
             ],
           ),
